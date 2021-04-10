@@ -1,0 +1,27 @@
+.container {
+  height: calc(100% - 100px);
+  width:   100%;
+  padding-left: 2px;
+}
+
+.userslist {
+  width: 450px;
+  height: 100%;
+  padding-top: 0px;
+}
+
+.viewport {
+  height: 100%;
+  max-width: 100%;
+}
+
+.users-search-found {
+  border-left: 2px solid red;
+  max-width: calc(100% - 1px);
+  background-color: rgb(217, 233, 238);
+}
+
+.users-search-notfound {
+  border-left: 2px solid transparent;
+  max-width: calc(100% - 1px);
+}
