@@ -16,12 +16,13 @@ import { AppComponent } from './app.component';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatListModule,
+    ScrollingModule,
+
     // must call with forRoot or forChild, either with no parameters, in which case the default search service
     // will be installed or supply a SearchboxConfig object to install cusom search logic
     NgxMatSearchboxModule.forRoot(),
-    MatToolbarModule,
-    MatListModule,
-    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
