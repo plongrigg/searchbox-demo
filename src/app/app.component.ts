@@ -1,6 +1,6 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Component, ViewChild } from '@angular/core';
-import { SearchData, SearchResult } from 'ngx-mat-searchbox';
+import { SearchData, SearchResult } from '@fgrid-ngx/mat-searchbox';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { data, DataRecord } from './app.data';
@@ -40,7 +40,7 @@ export class AppComponent {
   /**
    * Respond to users Search field result emission
    */
-   public usersSearched(searchResults: SearchResult[]): void {
+  public usersSearched(searchResults: SearchResult[]): void {
     this.usersRowsFound.next(Array.from(new Set(searchResults.map(searchResult => searchResult.rowIndex))));
 
     // scroll to the first found item to ensure it is visible
