@@ -1,16 +1,14 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Component, ViewChild } from '@angular/core';
 import { SearchData, SearchResult } from '@fgrid-ngx/mat-searchbox';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 import { data, DataRecord } from './app.data';
+
+
+type ListRecord = Omit<DataRecord, 'last_name' | 'first_name'> & { name: string };
 
 /**
  * Displays a list of users, with a searchbox connected to the list
  */
-
-type ListRecord = Omit<DataRecord, 'last_name' | 'first_name'> & { name: string };
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,7 +31,7 @@ export class AppComponent {
   /**
    * Rows found on user search
    */
-  private usersRowsFound: BehaviorSubject<number[]> = new BehaviorSubject(new Array<number>());
+  private usersRowsFound: number[] = [];
 
   constructor() { }
 
@@ -41,7 +39,7 @@ export class AppComponent {
    * Respond to users Search field result emission
    */
   public usersSearched(searchResults: SearchResult[]): void {
-    this.usersRowsFound.next(Array.from(new Set(searchResults.map(searchResult => searchResult.rowIndex))));
+    this.usersRowsFound = Array.from(new Set(searchResults.map(searchResult => searchResult.rowIndex)));
 
     // scroll to the first found item to ensure it is visible
     if (searchResults.length > 0) {
@@ -52,7 +50,7 @@ export class AppComponent {
   /**
    * Used for each option in users list, to query as to whether it is in current search found set
    */
-  public usersRowFound(row: number): Observable<boolean> {
-    return this.usersRowsFound.pipe(filter(rows => rows.includes(row)), map(rows => rows.length > 0));
+  public usersRowFound(row: number): boolean {
+    return this.usersRowsFound.includes(row);
   }
 }
