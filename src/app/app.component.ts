@@ -35,6 +35,14 @@ export class AppComponent {
 
   constructor() { }
 
+  public get size(): 'small' | 'default' {
+    return 'small';
+  }
+
+  public get appearance(): 'outline' | 'fill' | 'legacy' | 'standard' {
+    return 'outline';
+  }
+
   /**
    * Respond to users Search field result emission
    */
