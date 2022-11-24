@@ -1,16 +1,20 @@
-<!--default size not on toolbar-->
-<div *ngIf="size!=='small'" fxLayout = "row" fxLayoutAlign="start center" [style.padding-top.px]="5">
-  <div fxFlex="15px"></div>
-  <ngx-mat-searchbox [searchData]="searchData" [searchExtended]="true" [searchContinuous]="true"
-  [searchFieldAppearance]="appearance" [searchFieldSize]="size" (searchResults)="usersSearched($event)">
-  </ngx-mat-searchbox>
-</div>
 <!--toolbar - should be size = small to fit properly-->
-<mat-toolbar *ngIf="size==='small'">
+<mat-toolbar *ngIf="size==='small'; else extoolbar">
   <ngx-mat-searchbox [searchData]="searchData" [searchExtended]="true" [searchContinuous]="true"
     [searchFieldAppearance]="appearance" [searchFieldSize]="size" (searchResults)="usersSearched($event)">
   </ngx-mat-searchbox>
 </mat-toolbar>
+
+<!--default size not on toolbar-->
+<ng-template #extoolbar>
+  <div fxLayout="row" fxLayoutAlign="start center" [style.padding-top.px]="5">
+    <div fxFlex="15px"></div>
+    <ngx-mat-searchbox [searchData]="searchData" [searchExtended]="true" [searchContinuous]="true"
+      [searchFieldAppearance]="appearance" [searchFieldSize]="size" (searchResults)="usersSearched($event)">
+    </ngx-mat-searchbox>
+  </div>
+</ng-template>
+
 <div class="container">
   <mat-selection-list #users class="userslist" [multiple]="false">
     <!--scroller for users list-->
