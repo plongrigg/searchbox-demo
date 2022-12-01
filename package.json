@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "install-lib": "ng cache clean && npm cache clear --force && npm uninstall @fgrid-ngx/mat-searchbox --force && npm install C:/Development/F.Grid/Client/Libraries/searchbox/dist/ngx-mat-searchbox/fgrid-ngx-mat-searchbox-1.0.12.tgz --force"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +22,7 @@
     "@angular/material": "^15.0.0",
     "@angular/platform-browser": "^15.0.1",
     "@angular/platform-browser-dynamic": "^15.0.1",
-    "@fgrid-ngx/mat-searchbox": "^1.0.12",
+    "@fgrid-ngx/mat-searchbox": "file:../searchbox/dist/ngx-mat-searchbox/fgrid-ngx-mat-searchbox-1.0.12.tgz",
     "rxjs": "^7.5.7",
     "tslib": "^2.4.1",
     "zone.js": "^0.11.8"

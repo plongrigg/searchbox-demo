@@ -7,7 +7,7 @@
 
 <!--default size not on toolbar-->
 <ng-template #extoolbar>
-  <div fxLayout="row" fxLayoutAlign="start center" [style.padding-top.px]="5">
+  <div fxLayout="row" fxLayoutAlign="start center" [style.padding-top.px]="15">
     <div fxFlex="15px"></div>
     <ngx-mat-searchbox [searchData]="searchData" [searchExtended]="true" [searchContinuous]="true"
       [searchFieldAppearance]="appearance" [searchFieldSize]="size" (searchResults)="usersSearched($event)">
@@ -15,18 +15,21 @@
   </div>
 </ng-template>
 
+<!--list-->
 <div class="container">
   <mat-selection-list #users class="userslist" [multiple]="false">
     <!--scroller for users list-->
     <cdk-virtual-scroll-viewport #usersviewport itemSize="87" class="viewport">
       <!--each row represents a user account-->
-      <mat-list-option *cdkVirtualFor="let user of usersData; let row = index; templateCacheSize: 0" [value]=user.id
-        [style.height.px]="87" [ngClass]="(usersRowFound(row)) ? 'users-search-found' : 'users-search-notfound'">
-        <div matLine class="element-text-10pt">{{user.id}}</div>
-        <div matLine class="element-text-11pt">{{user.name}}</div>
-        <div matLine class="element-text-10pt">{{user.email}}</div>
+      <div *cdkVirtualFor="let user of usersData; let row = index; templateCacheSize: 0">
+        <mat-list-option [value]=user.id [style.height.px]="87"
+          [ngClass]="(usersRowFound(row)) ? 'users-search-found' : 'users-search-notfound'">
+          <div matLine matListItemTitle class="element-text-10pt">{{user.id}}</div>
+          <div matLine matListItemLine class="element-text-11pt">{{user.name}}</div>
+          <div matLine matListItemLine class="element-text-10pt">{{user.email}}</div>
+        </mat-list-option>
         <mat-divider></mat-divider>
-      </mat-list-option>
+      </div>
     </cdk-virtual-scroll-viewport>
   </mat-selection-list>
 </div>

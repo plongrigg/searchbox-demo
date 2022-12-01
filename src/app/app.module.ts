@@ -1,8 +1,8 @@
+import { MatListModule } from '@angular/material/list';
 import { NgxMatSearchboxModule } from '@fgrid-ngx/mat-searchbox';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

@@ -1,6 +1,6 @@
 .container {
   height: calc(100% - 100px);
-  width:   calc(100% - 2px);
+  width: calc(100% - 2px);
   padding-left: 2px;
 }
 
@@ -24,4 +24,12 @@
 .users-search-notfound {
   border-left: 2px solid transparent;
   max-width: calc(100% - 1px);
+}
+
+.element-text-10pt {
+  font-size: 10pt !important;
+}
+
+.element-text-11pt {
+  font-size: 11pt !important;
 }
